@@ -1,0 +1,150 @@
+.full_pro {
+  width: 100%;
+  display: flex;
+}
+
+.in_left_pro {
+  width: 25%;
+  padding: 0%;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 4%;
+  /* border: 1px solid red; */
+}
+.h_left_pro {
+  margin: 0%;
+  width: 70%;
+  color: black;
+  font-size: medium;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  /* border: 1px solid red; */
+}
+.p_left_pro {
+  cursor: pointer;
+  margin: 0%;
+  width: 70%;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.826);
+  /* border: 1px solid red; */
+}
+.line_left_pro {
+  margin: 0%;
+  width: 85%;
+  height: 1.5px;
+  background-color: rgba(135, 133, 133, 0.333);
+}
+
+.in_right {
+  width: 75%;
+  padding: 1%;
+  padding-top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  /* border: 1px solid red; */
+}
+.block_pro {
+  width: 98%;
+  padding: 1%;
+  padding-left: 1.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2%;
+  /* border: 1px solid red; */
+}
+.h_pro {
+  font-size: xx-large;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  margin-left: 1%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  /* border: 1px solid red; */
+}
+.hp_pro {
+  margin: 0;
+  margin-left: 1%;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  /* border: 1px solid red; */
+}
+.btn_pro {
+  cursor: pointer;
+  padding: 1.5%;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  border-radius: 4px;
+}
+.btn_pro:hover {
+  transform: scale(1.01);
+}
+.d_in {
+  width: 50%;
+  padding: 0%;
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
+  /* border: 1px solid red; */
+}
+.input_pro {
+  margin: 1%;
+  margin-top: 0;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 6px;
+  border: 1.5px solid rgba(128, 128, 128, 0.66);
+  z-index: 50;
+}
+.input1 {
+  padding: 3%;
+}
+.input2 {
+  padding: 1.5%;
+}
+.d1_in {
+  width: 98%;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
+  margin-bottom: 2%;
+  /* border: 1px solid red; */
+}
+.p_pro {
+  margin: 1%;
+  width: fit-content;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  z-index: 100;
+  background-color: white;
+  /* border: 1px solid red; */
+}
+.pp1_pro {
+  padding-left: 1%;
+  padding-right: 1%;
+  margin-left: 3%;
+  margin-bottom: -2%;
+}
+.pp2_pro {
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  margin-left: 2%;
+  margin-bottom: -1%;
+}
+.txtarea {
+  height: 30vh;
+}

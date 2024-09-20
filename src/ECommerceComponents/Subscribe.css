@@ -1,0 +1,43 @@
+.full_sub {
+  margin-top: 2%;
+  margin-bottom: 3%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.h_sub {
+  color: black;
+  font-weight: 500;
+  padding-bottom: 0%;
+  margin-bottom: 0;
+}
+.p_sub {
+  color: gray;
+  font-size: small;
+  font-weight: 500;
+}
+.input_email_sub {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input_sub {
+  width: 30%;
+  padding: 1%;
+  font-size: small;
+  background-color: white;
+  color: black;
+  border: 1px solid rgba(74, 74, 74, 0.578);
+}
+.btn_sub {
+  cursor: pointer;
+  width: 9%;
+  padding: 1%;
+  font-size: small;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+}
