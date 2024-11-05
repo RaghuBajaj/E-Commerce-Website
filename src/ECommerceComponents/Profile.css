@@ -32,6 +32,14 @@
   color: rgba(0, 0, 0, 0.826);
   /* border: 1px solid red; */
 }
+.p_log_pro{
+  color: rgb(116, 111, 111);
+  font-size: medium;
+  font-weight: 500;
+}
+.p_log_pro:hover{
+  color: red;
+}
 .line_left_pro {
   margin: 0%;
   width: 85%;

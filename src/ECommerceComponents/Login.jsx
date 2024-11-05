@@ -1,13 +1,17 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import "./Login.css";
+import { PageContext } from "../context/context";
 
-function Login(props) {
+function Login() {
+  const {setUser,allUsers,setAllUsers,navigate,setCartItems,setOrderItems}= useContext(PageContext);
   const [sign, setSign] = useState(true);
   const [onTry, setOnTry] = useState(false);
-  const [info, setInfo] = useState({
+  const [userInfo, setUserInfo] = useState({
     Your_name: "",
     Mobile_number: "",
     Password: "",
+    userCart:[],
+    userOrder:[]
   });
 
   const initialInfo = useCallback(() => {
@@ -15,19 +19,50 @@ function Login(props) {
       Your_name: "",
       Mobile_number: "",
       Password: "",
+      userCart:[],
+      userOrder:[]
     };
-    setInfo(blank);
+    setUserInfo(blank);
   }, []);
+  
+  const handleCreateAccount = () =>{
+    if(userInfo.Your_name !=='' && userInfo.Mobile_number !=='' && userInfo.Password !== ''){
+      setAllUsers((prev)=>{
+        if(prev){
+          return[...prev,userInfo];
+        }
+        else{
+          return userInfo;
+        }
+      });
+      setUser(userInfo);
+      navigate('/Home');
+    }
+    else{
+      alert('Please fill all the required fields!');
+    }
+  };
+  const handleLogin = () =>{
+    if(userInfo.Mobile_number !== '' && userInfo.Password !== ''){
+      const account = allUsers.find((item)=>item.Mobile_number === userInfo.Mobile_number && item.Password === userInfo.Password);
+      if(account){
+        setUser(account); 
+        setCartItems(account.userCart);
+        setOrderItems(account.userOrder);
+        navigate('/Home');
+      }
+      else{
+        alert('Account dosent exesist!');
+      }
+    }
+    else{
+      alert('Please fill all the required fields!');
+    }
+  };
 
-  function handleName(e) {
-    setInfo((info.Your_name = e.target.value));
-  }
-  function handleMobile(e) {
-    setInfo((info.Mobile_number = e.target.value));
-  }
-  function handlePassword(e) {
-    setInfo((info.Password = e.target.value));
-  }
+  const handleState=(e,setState,field)=> {
+    setState((prev)=>({ ...prev , [field] : e.target.value}));
+  };
 
   useEffect(() => {
     initialInfo();
@@ -49,9 +84,9 @@ function Login(props) {
                 type="text"
                 placeholder="First and last name"
                 className="lo_inp"
-                onChange={handleName}
-              ></input>
-              {onTry === true && info.Your_name === "" && (
+                onChange={(e)=>handleState(e,setUserInfo,"Your_name")}
+              />
+              {onTry === true && userInfo.Your_name === "" && (
                 <p className="red">
                   <span>!</span> Name is required{" "}
                 </p>
@@ -63,9 +98,9 @@ function Login(props) {
                 type="text"
                 placeholder="Mobile number"
                 className="lo_inp"
-                onChange={handleMobile}
-              ></input>
-              {onTry === true && info.Mobile_number === "" && (
+                onChange={(e)=>handleState(e,setUserInfo,"Mobile_number")}
+              />
+              {onTry === true && userInfo.Mobile_number === "" && (
                 <p className="red">
                   <span>!</span> Mobile number is required{" "}
                 </p>
@@ -77,9 +112,9 @@ function Login(props) {
                 type="text"
                 placeholder="At least 6 characters"
                 className="lo_inp"
-                onChange={handlePassword}
-              ></input>
-              {onTry === true && info.Password === "" && (
+                onChange={(e)=>handleState(e,setUserInfo,"Password")}
+              />
+              {onTry === true && userInfo.Password === "" && (
                 <p className="red">
                   <span>!</span> Password is required{" "}
                 </p>
@@ -96,6 +131,7 @@ function Login(props) {
                 type="button"
                 className="lo_btn"
                 onClick={() => {
+                  handleCreateAccount();
                   setOnTry(true);
                 }}
               >
@@ -142,9 +178,9 @@ function Login(props) {
                 type="text"
                 placeholder="Mobile number"
                 className="lo_inp"
-                onChange={handleMobile}
+                onChange={(e)=>handleState(e,setUserInfo,"Mobile_number")}
               ></input>
-              {onTry === true && info.Mobile_number === "" && (
+              {onTry === true && userInfo.Mobile_number === "" && (
                 <p className="red">
                   <span>!</span> Email or Mobile phone number is required
                 </p>
@@ -156,9 +192,9 @@ function Login(props) {
                 type="text"
                 placeholder="At least 6 characters"
                 className="lo_inp"
-                onChange={handlePassword}
+                onChange={(e)=>handleState(e,setUserInfo,"Password")}
               ></input>
-              {onTry === true && info.Password === "" && (
+              {onTry === true && userInfo.Password === "" && (
                 <p className="red">
                   <span>!</span> Password is required
                 </p>
@@ -170,6 +206,7 @@ function Login(props) {
                 type="button"
                 className="lo_btn"
                 onClick={() => {
+                  handleLogin();
                   setOnTry(true);
                 }}
               >

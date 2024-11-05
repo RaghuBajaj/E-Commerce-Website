@@ -36,7 +36,6 @@
   gap: 2%;
   /* border: 1px solid red; */
 }
-
 .li {
   width: fit-content;
   padding: 1%;
@@ -44,24 +43,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70%;
-  transition: 0.1s ease;
+  height: 60%;
   color: black;
-  /* border: 1px solid green; */
   overflow: hidden;
   text-decoration: none;
+  /* border: 1px solid green; */
 }
-.li:hover {
-  /* border-bottom: 1.5px solid black; */
-  text-decoration: underline;
-  /* border-bottom-width: 10%; */
+.li1:hover {
   cursor: pointer;
+  color: black;
+  border-bottom: 1.4px solid black;
 }
-.li:active {
-  transform: scale(1.01);
-  font-weight: 400;
+.li_active{
+  color: black;
+  border-bottom: 2px solid black;
+  font-weight: 500;
 }
-
 .nav_imgs {
   overflow: hidden;
   width: 50%;

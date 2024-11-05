@@ -1,8 +1,19 @@
+import { useContext, useState } from "react";
 import Footer from "./Footer";
 import "./Profile.css";
 import Subscribe from "./Subscribe";
-
+import { PageContext } from "../context/context";
+ 
 function Profile() {
+  const {user,setUser,navigate}=useContext(PageContext);
+  const handleLogout = () => {
+    localStorage.removeItem('cartItems');
+    localStorage.removeItem('orderItems'); 
+    localStorage.removeItem('accountUser');
+    setUser({});
+    navigate('/Login');
+  };
+  const [login,setLogin] = useState({});
   return (
     <>
       <div className="full_pro">
@@ -12,7 +23,7 @@ function Profile() {
           <p className="p_left_pro">Password</p>
           <p className="p_left_pro">Billing</p>
           <p className="line_left_pro"></p>
-          <p className="p_left_pro">Log out</p>
+          <p className="p_left_pro p_log_pro" onClick={()=>{handleLogout();}}>Log out</p>
         </div>
 
         <div className="in_right">
@@ -32,8 +43,9 @@ function Profile() {
               <input
                 className="input_pro  input1"
                 type="text"
-                placeholder="Enter first name"
-              ></input>
+                value={user.Your_name}
+                placeholder="Enter first name" readOnly
+              />
             </div>
             <div className="d_in">
               <p className="p_pro pp1_pro">Last Name</p>
@@ -41,7 +53,7 @@ function Profile() {
                 className="input_pro input1"
                 type="text"
                 placeholder="Enter last name"
-              ></input>
+              />
             </div>
           </div>
 
@@ -50,8 +62,9 @@ function Profile() {
             <input
               className="input_pro input2"
               type="text"
-              placeholder="Enter phone number"
-            ></input>
+              value={user.Mobile_number}
+              placeholder="Enter phone number" readOnly
+            />
           </div>
 
           <div className="d1_in">
@@ -60,7 +73,7 @@ function Profile() {
               className="input_pro input2"
               type="text"
               placeholder="Enter email id"
-            ></input>
+            />
           </div>
 
           <div className="d1_in">
@@ -68,8 +81,9 @@ function Profile() {
             <input
               className="input_pro input2"
               type="text"
-              placeholder="Enter password"
-            ></input>
+              value={user.Password}
+              placeholder="Enter password" readOnly
+            />
           </div>
 
           <div className="d1_in">
